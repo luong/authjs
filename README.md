@@ -1,5 +1,7 @@
 This is demo refactored of [AuthJs](https://authjs.dev) project, currently I utlitize AuthJs v5 beta.
 
+Demo site: [https://authjs.dev.12g.co](https://authjs.dev.12g.co)
+
 ## Getting Started
 
 First, create your own `.env` file  with credentials of app integrations. For `AUTHJS_SECRET`, get the value here [https://generate-secret.vercel.app/32](https://generate-secret.vercel.app/32).
