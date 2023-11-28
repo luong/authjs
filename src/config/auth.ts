@@ -3,6 +3,7 @@ import type { NextAuthConfig } from 'next-auth'
 import GitHub from 'next-auth/providers/github'
 import Google from 'next-auth/providers/google'
 import Facebook from 'next-auth/providers/facebook'
+import Twitter from 'next-auth/providers/twitter'
 
 export const nextAuthConfig: NextAuthConfig = {
   secret: process.env.AUTHJS_SECRET,
@@ -21,6 +22,10 @@ export const nextAuthConfig: NextAuthConfig = {
     Facebook({
       clientId: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET
+    }),
+    Twitter({
+      clientId: process.env.X_ID,
+      clientSecret: process.env.X_SECRET
     })
   ],
   callbacks: {
