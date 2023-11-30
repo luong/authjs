@@ -28,6 +28,9 @@ importers:
       nodemailer:
         specifier: ^6.9.7
         version: 6.9.7
+      prisma:
+        specifier: ^5.6.0
+        version: 5.6.0
       react:
         specifier: ^18
         version: 18.2.0
@@ -56,9 +59,6 @@ importers:
       postcss:
         specifier: ^8
         version: 8.4.31
-      prisma:
-        specifier: ^5.6.0
-        version: 5.6.0
       tailwindcss:
         specifier: ^3.3.0
         version: 3.3.5
@@ -368,6 +368,7 @@ packages:
   /@prisma/engines@5.6.0:
     resolution: {integrity: sha512-Mt2q+GNJpU2vFn6kif24oRSBQv1KOkYaterQsi0k2/lA+dLvhRX6Lm26gon6PYHwUM8/h8KRgXIUMU0PCLB6bw==}
     requiresBuild: true
+    dev: false
 
   /@rushstack/eslint-patch@1.6.0:
     resolution: {integrity: sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==}
@@ -2224,6 +2225,7 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 5.6.0
+    dev: false
 
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
