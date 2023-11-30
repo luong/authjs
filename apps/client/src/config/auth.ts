@@ -5,13 +5,30 @@ import Google from 'next-auth/providers/google'
 import Facebook from 'next-auth/providers/facebook'
 import Twitter from 'next-auth/providers/twitter'
 import Credentials from 'next-auth/providers/credentials'
+import Email from 'next-auth/providers/email'
+import { PrismaClient } from '@prisma/client'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+
+const prisma = new PrismaClient()
 
 export const nextAuthConfig: NextAuthConfig = {
+  adapter: PrismaAdapter(prisma),
   secret: process.env.AUTHJS_SECRET,
   session: {
     strategy: 'jwt'
   },
   providers: [
+    Email({
+      server: {
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
+        },
+      },
+      from: process.env.EMAIL_FROM,
+    }),
     Credentials({
       name: 'Email And Password',
       credentials: {
@@ -57,11 +74,11 @@ export const nextAuthConfig: NextAuthConfig = {
       return true
     },
     async jwt({ token, user, account, profile }) {
-      console.log(['jwt', token, user, account, profile])
+      //console.log(['jwt', token, user, account, profile])
       return token
     },
     authorized({ request, auth }): boolean {
-      console.log(['authorized', auth])
+      //console.log(['authorized', auth])
       return !!auth?.user
     }
   }
